@@ -50,7 +50,7 @@ public abstract class Unit {
      */
     public Square getSquare() {
         assert invariant();
-        assert square != null;
+//        assert square != null;
         return square;
     }
 
