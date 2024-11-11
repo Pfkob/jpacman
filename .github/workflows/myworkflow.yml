@@ -26,19 +26,12 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '11'
-        distribution: 'temurin'
+        distribution: 'adopt'
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
       run: xvfb-run ./gradlew build
 
-    # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
-    # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-
-    - name: Build with Gradle Wrapper
-      run: ./gradlew build
 
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
@@ -64,7 +57,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '11'
-        distribution: 'temurin'
+        distribution: 'adopt'
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
