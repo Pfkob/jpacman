@@ -66,7 +66,7 @@ jacocoTestReport {
 
 checkstyle {
     configFile file("checkstyle.xml")
-    toolVersion = '5.3'
+    toolVersion = '8.41'
     ignoreFailures = true 
 }
 
