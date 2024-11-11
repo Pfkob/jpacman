@@ -67,8 +67,6 @@ jacocoTestReport {
 checkstyle {
     configFile file("checkstyle.xml")
     ignoreFailures = false
-    toolVersion = "8.30"
-    sourceSets = [sourceSets.main]
 }
 
 pmd {
