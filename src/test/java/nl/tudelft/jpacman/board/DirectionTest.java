@@ -11,8 +11,10 @@ import org.junit.jupiter.api.Test;
  * @author Arie van Deursen
  */
 public class DirectionTest {
+
     /**
-     * Do we get the correct delta when moving north?
+     * Test if the delta values for NORTH direction are correct.
+     * North should have a deltaY of -1 and deltaX of 0.
      */
     @Test
     void testNorth() {
@@ -20,6 +22,11 @@ public class DirectionTest {
         assertThat(north.getDeltaY()).isEqualTo(-1);
         assertThat(north.getDeltaX()).isEqualTo(0);
     }
+
+    /**
+     * Test if the delta values for SOUTH direction are correct.
+     * South should have a deltaY of 1 and deltaX of 0.
+     */
     @Test
     void testSouth() {
         Direction south = Direction.valueOf("SOUTH");
@@ -27,6 +34,10 @@ public class DirectionTest {
         assertThat(south.getDeltaX()).isEqualTo(0);
     }
 
+    /**
+     * Test if the delta values for EAST direction are correct.
+     * East should have a deltaY of 0 and deltaX of 1.
+     */
     @Test
     void testEast() {
         Direction east = Direction.valueOf("EAST");
@@ -34,6 +45,10 @@ public class DirectionTest {
         assertThat(east.getDeltaX()).isEqualTo(1);
     }
 
+    /**
+     * Test if the delta values for WEST direction are correct.
+     * West should have a deltaY of 0 and deltaX of -1.
+     */
     @Test
     void testWest() {
         Direction west = Direction.valueOf("WEST");
