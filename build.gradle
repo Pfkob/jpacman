@@ -64,11 +64,17 @@ jacocoTestReport {
     }
 }
 
+// checkstyle {
+//     configFile file("checkstyle.xml")
+//     toolVersion = '8.41'
+//     ignoreFailures = true 
+// }
+
 checkstyle {
-    configFile file("checkstyle.xml")
-    toolVersion = '8.41'
-    ignoreFailures = true 
+    toolVersion = '8.45'
+    configFile = file("$rootDir/checkstyle.xml")
 }
+
 
 pmd {
     ruleSetFiles "pmd-rules.xml"
