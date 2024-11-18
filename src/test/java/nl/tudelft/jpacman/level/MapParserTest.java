@@ -27,6 +27,7 @@ public class MapParserTest {
     private LevelFactory levelFactory;
     @Mock
     private Blinky blinky;
+    private Throwable thrown;
 
     /**
      * Test for the parseMap method (good map).
@@ -50,36 +51,23 @@ public class MapParserTest {
             .createGhost();
     }
 
-//
-//        // Expect PacmanConfigurationException
-//        assertThrows(PacmanConfigurationException.class, () -> mapParser.parseMap(map));
-//    }
-
     /**
-     * Test for the parseMap method (bad map).
+     * * Test for the parseMap method (bad map).
      */
-    @Test
-    public void testParseMapWrong1() {
+    @Test public void testParseMapWrong1() {
         PacmanConfigurationException thrown =
             Assertions.assertThrows(PacmanConfigurationException.class, () -> {
                 MockitoAnnotations.initMocks(this);
                 assertNotNull(boardFactory);
                 assertNotNull(levelFactory);
-                Mockito.when(levelFactory.createGhost()).thenReturn(blinky);
                 MapParser mapParser = new MapParser(levelFactory, boardFactory);
-
-                // Create a map with unexpected characters
                 ArrayList<String> map = new ArrayList<>();
                 map.add("############");
-                map.add("#P              G#");
+                map.add("#P   X    G#");
                 map.add("############");
-
-                // Call parseMap with invalid map
                 mapParser.parseMap(map);
             });
-
-        // Check the exception message to ensure it provides useful information
-        Assertions.assertEquals("Map contains unexpected characters", thrown.getMessage());
+        Assertions.assertEquals("Invalid character at 5,1: X", thrown.getMessage());
     }
-
 }
+
