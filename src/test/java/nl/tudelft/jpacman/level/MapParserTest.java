@@ -27,7 +27,6 @@ public class MapParserTest {
     private LevelFactory levelFactory;
     @Mock
     private Blinky blinky;
-    private Throwable thrown;
 
     /**
      * Test for the parseMap method (good map).
